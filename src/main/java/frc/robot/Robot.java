@@ -37,6 +37,7 @@ public class Robot extends TimedRobot {
   /*
     This is the place in which you state the objects you want to make, and to give them a name.
   */
+  
   //Motors
   WPI_TalonFX frontLeft, frontRight, rearLeft, rearRight;
 
@@ -52,6 +53,7 @@ public class Robot extends TimedRobot {
     /*
       This is the place to create the objects for the code to use, and to set them to their respective values. To do this you need to use the constructor.
     */
+    
     // Motors and Controllers
     frontLeft = new WPI_TalonFX(10);
     frontRight = new WPI_TalonFX(11);
@@ -65,8 +67,6 @@ public class Robot extends TimedRobot {
 
     // Input
     joy = new Joystick(0);
-
-    
   }
 
 
@@ -92,7 +92,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    //This runs periodically when in the teleoperated period
+    // This runs periodically when in the teleoperated period
     drive.arcadeDrive(joy.getRawAxis(1) * -1, joy.getRawAxis(4));
   }
 
@@ -108,11 +108,11 @@ public class Robot extends TimedRobot {
 
   @Override
   public void testInit() {
-    // In the driver station there is a mode to test the robot, when in that mode this is the first thing to run
+    // In the driver station there is a mode to test the robot, when in that mode this is the first thing to run.
   }
 
   @Override
   public void testPeriodic() {
-    // This rins periodically when the robot is in test mode
+    // This runs periodically when the robot is in test mode.
   }
 }
