@@ -57,6 +57,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     /*
       This is the place to create the objects for the code to use, and to set them to their respective values. To do this you need to use the constructor.
+      This is the first piece of your code to run when the robot starts.
     */
     
     // Motors and Controllers
