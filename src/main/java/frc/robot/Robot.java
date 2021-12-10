@@ -35,7 +35,7 @@ import edu.wpi.first.wpilibj.Joystick;
 
 public class Robot extends TimedRobot {
   /*
-    This is the place in which you state the objects you want to make, and to give them a name.
+    This is the place in which you state the objects you want to make, and to give them a name. You can also create variables and constants here.
   */
   //Motors
   WPI_TalonFX frontLeft, frontRight, rearLeft, rearRight;
@@ -46,6 +46,11 @@ public class Robot extends TimedRobot {
 
   // Inputs
   Joystick joy;
+
+  // Constants 
+  int intakeIn = 0; // These are used to set the button in which the mechanisms will be used with.
+  int intakeOut = 1;
+  int shooterRun = 2;
 
   @Override
   public void robotInit() {
@@ -93,7 +98,12 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     //This runs periodically when in the teleoperated period
+
+    // Drive command
     drive.arcadeDrive(joy.getRawAxis(1) * -1, joy.getRawAxis(4));
+
+    // Mechanism command
+    setMechs(joy);
   }
 
   @Override
@@ -114,5 +124,17 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
     // This rins periodically when the robot is in test mode
+  }
+
+  // This is a good place to place other various methods that you will wish to use, including the below example of mechanisms.
+
+  public void setMechs(Joystick joystick) {
+    if (joystick.getRawButton(intakeIn)) {
+      // Set Motor here
+    } else if (joystick.getRawButton(intakeOut)) {
+      // Set Motor opposite way
+    } else {
+      // Set the Motor output to zero if buttons are not pressed.
+    }
   }
 }
